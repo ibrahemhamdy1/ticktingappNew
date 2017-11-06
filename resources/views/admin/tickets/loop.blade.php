@@ -9,7 +9,7 @@
 
 
 
-    <td>
+    <td class=" text-center">
         <a class="btn btn-info btn-rounded btn-sm" href="{{ url('controll/tickets/'.$row->id) }}" ><span class="fa fa-pencil">view</span></a>
         @role(['admin','salesManager'])
         <a class="mb-xs mt-xs mr-xs btn btn-warning" href="{{ url('controll/tickets/'.$row->id.'/edit') }}" ><span class="fa fa-pencil"></span></a>

@@ -36,7 +36,7 @@
                                         @endrole
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody class="text-center">
                                       @include('admin.clients.loop')
 
 
