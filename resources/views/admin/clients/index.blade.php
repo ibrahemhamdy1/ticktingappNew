@@ -9,7 +9,7 @@
 <!-- start: page -->
 
 
-
+ @include('admin/flash-message')
                         <section class="panel">
                             <header class="panel-heading">
                                 <div class="panel-actions">

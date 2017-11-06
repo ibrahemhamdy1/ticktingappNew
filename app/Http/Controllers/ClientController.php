@@ -116,13 +116,13 @@ class ClientController extends Controller {
 
             if ($this->request->ajax())
                 return response()->json(array('status' => 'true', 'message' => "Add client Done Sucessfully"));
-            return redirect()->back()->with('success', "Add client Done Sucessfully");
+            return redirect('/controll/clients')->with('success', "Add client Done Sucessfully");
 
 
         } else {
             if ($this->request->ajax())
                 return response()->json(array('status' => 'false', 'message' => trans('Error')));
-            return redirect()->back()->with('failed', trans('lang.Error'));
+            return redirect('/controll/clients');
         }
     }
 
