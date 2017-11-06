@@ -32,7 +32,7 @@ class ClientRequest extends Request
                 return array(
 
                     'name' => 'required|min:3',
-                   'email' => 'required|email|unique:clients,email',
+                    'email' => 'required|email|unique:clients,email',
                     'account' => 'required|unique:clients,account',
 
 

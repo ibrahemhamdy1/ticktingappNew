@@ -27,7 +27,7 @@ $packets = $packet->pluck('name', 'id');
                                         <span class="input-group-addon">
                                             <span class="icon"><i class="fa fa-user"></i></span>
                                         </span>
-                                        {!!Form::text('name', null,array('class'=>'validate form-control','id'=>'name'))!!}
+                                        {!!Form::text('name', null,array('class'=>'validate form-control','id'=>'name','required' => 'required'))!!}
 
                                     </div>
                                 </section>
@@ -41,7 +41,7 @@ $packets = $packet->pluck('name', 'id');
                                         <span class="input-group-addon">
                                             <span class="icon"><i class="fa fa-user"></i></span>
                                         </span>
-                                            {!!Form::text('user_name', null,array('class'=>'validate form-control','id'=>'user_name'))!!}
+                                            {!!Form::text('user_name', null,array('class'=>'validate form-control','id'=>'user_name','required' => 'required'))!!}
 
                                     </div>
                                 </section>
@@ -56,7 +56,7 @@ $packets = $packet->pluck('name', 'id');
                                         <span class="input-group-addon">
                                             <span class="icon"><i class=" glyphicon  glyphicon-envelope"></i></span>
                                         </span>
-                                            {!!Form::email('email', null,array('class'=>'validate form-control','id'=>'email'))!!}
+                                            {!!Form::email('email', null,array('class'=>'validate form-control','id'=>'email','required' => 'required'))!!}
                                             <label class="error">{{ $errors->first('email') }}</label>
 
                                     </div>
@@ -73,7 +73,7 @@ $packets = $packet->pluck('name', 'id');
                                         <span class="input-group-addon">
                                             <span class="icon"><i class="glyphicon  glyphicon-phone-alt"></i></span>
                                         </span>
-                                        {!!Form::text('phone', null,array('class'=>'validate form-control','id'=>'phone'))!!}
+                                        {!!Form::text('phone', null,array('class'=>'validate form-control','id'=>'phone','required' => 'required'))!!}
 
                                     </div>
                                 </section>
@@ -89,7 +89,7 @@ $packets = $packet->pluck('name', 'id');
                                             <span class="icon"><i class="fa fa-phone"></i></span>
                                         </span>
                                         
-                                        {!!Form::text('mobile', null,array('class'=>'validate form-control','id'=>'mobile'))!!}
+                                        {!!Form::text('mobile', null,array('class'=>'validate form-control','id'=>'mobile','required' => 'required'))!!}
 
                                     </div>
                                 </section>
@@ -105,7 +105,7 @@ $packets = $packet->pluck('name', 'id');
                                         </span>
                                         
                                        
-                                    {!!Form::text('address', null,array('class'=>'validate form-control','id'=>'address'))!!}
+                                    {!!Form::text('address', null,array('class'=>'validate form-control','id'=>'address','required' => 'required'))!!}
 
                                     </div>
                                 </section>
@@ -125,7 +125,7 @@ $packets = $packet->pluck('name', 'id');
                                         
                                        
                                   
-                            {!!Form::text('account', null,array('class'=>'validate form-control','id'=>'account'))!!}
+                            {!!Form::text('account', null,array('class'=>'validate form-control','id'=>'account','required' => 'required'))!!}
 
                                     </div>
                                 </section>
@@ -143,7 +143,7 @@ $packets = $packet->pluck('name', 'id');
                                         
                                        
                                                   
-                                        {!!Form::text('start_date', null,array('class'=>'validate form-control','id'=>'start_date'))!!}
+                                        {!!Form::text('start_date', null,array('class'=>'validate form-control','id'=>'start_date','required' => 'required'))!!}
                                         <label class="error">{{ $errors->first('start_date') }}</label>
 
                                     </div>
@@ -163,7 +163,7 @@ $packets = $packet->pluck('name', 'id');
                                        
                                                   
                                         
-                                        {!!Form::text('order_status', null,array('class'=>'validate form-control','id'=>'order_status'))!!}
+                                        {!!Form::text('order_status', null,array('class'=>'validate form-control','id'=>'order_status','required' => 'required'))!!}
                                         <label class="error">{{ $errors->first('order_status') }}</label>
 
                                     </div>
@@ -183,7 +183,7 @@ $packets = $packet->pluck('name', 'id');
                                                   
                                         
                                    
-                                        {!!Form::text('customer_id', null,array('class'=>'validate form-control','id'=>'customer_id'))!!}
+                                        {!!Form::text('customer_id', null,array('class'=>'validate form-control','id'=>'customer_id','required' => 'required'))!!}
                                         <label class="error">{{ $errors->first('customer_id') }}</label>
                                 
                                     </div>
@@ -203,7 +203,7 @@ $packets = $packet->pluck('name', 'id');
                                         
                                    
                                       
-                                            {{  Form::select('network_id', $networks, null, ['placeholder' => 'Select ISP','class'=>'form-control','id'=>'network_id',])}}
+                                            {{  Form::select('network_id', $networks, null, ['placeholder' => 'Select ISP','class'=>'form-control','id'=>'network_id','required' => 'required'])}}
 
                                     </div>
                                 </section>
@@ -223,7 +223,7 @@ $packets = $packet->pluck('name', 'id');
                                       
                                       
                                          
-            {{  Form::select('packet_id', $packets, null, ['placeholder' => 'Select package','class'=>'form-control','id'=>'packet_id',])}}
+            {{  Form::select('packet_id', $packets, null, ['placeholder' => 'Select package','class'=>'form-control','id'=>'packet_id','required' => 'required'])}}
 
                                     </div>
                                 </section>

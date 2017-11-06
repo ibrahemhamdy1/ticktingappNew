@@ -9,8 +9,15 @@
 <!-- start: page -->
 
 
- @include('admin/flash-message')
-                        <section class="panel">
+{{--  @include('admin/flash-message')
+ --}}     
+
+
+@if(Session::has('flash_message'))
+    <div class="alert alert-success"><em> {!! session('flash_message') !!}</em></div>
+@endif
+
+                    <section class="panel">
                             <header class="panel-heading">
                                 <div class="panel-actions">
                                     <a   href="{{ url('controll/clients/create')}}">

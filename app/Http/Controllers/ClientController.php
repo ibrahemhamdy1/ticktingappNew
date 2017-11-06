@@ -36,20 +36,7 @@ class ClientController extends Controller {
      
 
 
- public function autoComplete(Request $request) {
-        $query = $request->get('term','');
-        
-        $Client=Client::where('phone','LIKE','%'.$query.'%')->get();
-        
-        $data=array();
-        foreach ($Client as $product) {
-                $data[]=array('name'=>$product->name,'id'=>$product->id);
-        }
-        if(count($data))
-             return $data;
-        else
-            return ['value'=>'No Result Found','id'=>''];
-    }
+ 
 
     //=======  request and model and view file =============//
     public function __construct(ClientRequest $request, Client $model)
@@ -113,15 +100,14 @@ class ClientController extends Controller {
             if ($insert) {
             
             //
-
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'true', 'message' => "Add client Done Sucessfully"));
-            return redirect('/controll/clients')->with('success', "Add client Done Sucessfully");
+                    \Session::flash('flash_message','clients add successfully added.'); //<--FLASH MESSAGE
+           
+            return redirect('/controll/clients');
 
 
         } else {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'false', 'message' => trans('Error')));
+             \Session::flash('flash_message','clients Not add successfully added there is a problem '); //<--FLASH MESSAGE
+           
             return redirect('/controll/clients');
         }
     }
@@ -199,5 +185,21 @@ class ClientController extends Controller {
                 return response()->json(array('status' => 'false', trans('lang.deletedfailed')));
             return redirect()->back()->with('failed', trans('lang.deletedfailed'));
         }
+    }
+
+    // Here  we  get  the  client by the phone 
+    public function autoComplete(Request $request) {
+        $query = $request->get('term','');
+        
+        $Client=Client::where('phone','LIKE','%'.$query.'%')->get();
+        
+        $data=array();
+        foreach ($Client as $product) {
+                $data[]=array('name'=>$product->name,'id'=>$product->id);
+        }
+        if(count($data))
+             return $data;
+        else
+            return ['value'=>'No Result Found','id'=>''];
     }
 }
