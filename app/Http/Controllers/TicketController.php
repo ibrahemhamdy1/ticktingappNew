@@ -49,19 +49,19 @@ class TicketController extends Controller
 
 
         if ($role == "admin") {
-            $rows = $this->model->paginate(25);
+            $rows = $this->model->paginate(200000);
         } elseif ($role == "salesManager") {
-            $rows = $this->model->paginate(25);
+            $rows = $this->model->paginate(200000);
         } elseif ($role == "supportManager") {
-            $rows = $this->model->paginate(25);
+            $rows = $this->model->paginate(200000);
         } elseif ($role == "sales") {
 
-            $rows = $this->model->where('status', '!=', 3)->paginate(25);
+            $rows = $this->model->where('status', '!=', 3)->paginate(200000);
 
 
         } elseif ($role == "supports") {
 
-            $rows = $this->model->where('employee_id', auth()->user()->id)->where('type', 1)->where('status', '!=', 3)->paginate(25);
+            $rows = $this->model->where('employee_id', auth()->user()->id)->where('type', 1)->where('status', '!=', 3)->paginate(200000);
 
 
         }

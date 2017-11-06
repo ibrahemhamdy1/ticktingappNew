@@ -25,12 +25,12 @@ class CategoryController extends Controller
     {
 
         if (is_null($this->request->value)) {//
-            $rows = $this->model->paginate(25);
+            $rows = $this->model->paginate(20000);
         } else {
             
             $this->request->flash();
             $rows = $this->model->where('name', 'like', "%{$this->request->value}%")
-                ->paginate(25);
+                ->paginate(20000);
         }
 
 //           return $rows;

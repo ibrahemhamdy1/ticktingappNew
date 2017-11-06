@@ -35,12 +35,12 @@ class UserController extends Controller {
     {
 
         if (is_null($this->request->value)) {//
-            $rows = $this->model->paginate(400);
+            $rows = $this->model->paginate(20000);
         } else {
 
             $this->request->flash();
             $rows = $this->model->where('name', 'like', "%{$this->request->value}%")
-                ->paginate(400);
+                ->paginate(20000);
         }
 
 //           return $rows;
