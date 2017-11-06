@@ -31,7 +31,7 @@
 
 
                 {{ csrf_field() }}
-                <input type="file" name="import_file" class="form-control" />
+                <input type="file" name="import_file" class="form-control" required />
 
                 <button class="btn btn-primary" style="
     margin: 10px;">Import File</button>

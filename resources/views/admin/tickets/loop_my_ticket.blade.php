@@ -11,11 +11,6 @@
 
     <td>
         <a class="btn btn-default btn-rounded btn-sm" href="{{ url('controll/tickets/'.$row->id) }}" ><span class="fa fa-pencil">view</span></a>
-        {{--@role(['admin','salesManager','supportManager'])--}}
-        {{--<a class="btn btn-default btn-rounded btn-sm" href="{{ url('controll/tickets/'.$row->id.'/edit') }}" ><span class="fa fa-pencil"></span></a>--}}
-        {{--@endrole--}}
-        <!--
-       <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_{{ $row->id }}');"><span class="fa fa-times"></span></button>-->
         @role(['admin'])
         {!! Form::open(['action'=>['TicketController@destroy',$row->id],'method'=>'delete' ,'style'=>'display: inline']) !!}
         <button type="submit" class="btn btn-danger red" onclick='return confirm("Are You sure!!")' ><span class="fa fa-times"></span></button>

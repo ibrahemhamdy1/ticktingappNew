@@ -84,7 +84,7 @@ $clientsss = $client->get();
 
 <form>
                     <div class="form-group">
-                        <label for="tag_list">Tags:</label>
+                        
                         <select id="search_text" name="client_id" class="form-control" ></select>
                     </div>
                 </form>

@@ -4,8 +4,6 @@
 @section('header')
 <link type="text/css" rel="stylesheet" 
     href="{{ asset('admin-assets/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css')}}"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
-
 @endsection
 <!-- start: page -->
   
@@ -51,21 +49,5 @@
 
 
 
-<script src="{{ asset('admin-assets/assets/vendor/select2/js/select2.js')}}"></script>
 
- <script src="{{ asset('admin-assets/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js')}}"></script>
-    
-<script src="{{ asset('admin-assets/assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js')}}
-"></script>
-        
-                <script src="{{ asset('admin-assets/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js')}}
-"></script>
-
-
-
-
-<script src="{{ asset('admin-assets/assets/javascripts/tables/examples.datatables.default.js')}}"></script>
-
-<script src="{{asset('admin-assets/assets/javascripts/tables/examples.datatables.row.with.details.js')}}"></script>
-<script src="{{ asset('admin-assets/assets/javascripts/tables/examples.datatables.tabletools.js')}}"></script>
 @endsection

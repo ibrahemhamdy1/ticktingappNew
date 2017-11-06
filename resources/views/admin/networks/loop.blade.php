@@ -15,5 +15,3 @@
     </td>
 </tr>
 @endforeach
-btn btn-danger red 
-mb-xs mt-xs mr-xs btn btn-warning
