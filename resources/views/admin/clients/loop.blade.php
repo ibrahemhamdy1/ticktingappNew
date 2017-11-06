@@ -4,6 +4,8 @@
         <td><strong>{{  substr($row->name,0,100) }}</strong></td>
         <td><strong>{{ $row->account }}</strong></td>
         <td><strong>{{ $row->email}}</strong></td>
+        <td><strong>{{ $row->phone}}</strong></td>
+
 
         {{--<td><img src="{{  asset('admin-assets/images/clients/'.$row->image) }}" width="100" height="70"/></td>--}}
 

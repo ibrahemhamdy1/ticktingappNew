@@ -31,6 +31,8 @@
                                         <th data-field="company">{{trans('main.Name')}}</th>
                                         <th data-field="company">Account Number</th>
                                         <th data-field="company">{{trans('main.Email')}}</th>
+                                         <th data-field="company">{{trans('main.phone')}}</th>
+
                                         @role(['admin','salesManager','sales'])
                                         <th data-field="progress">{{trans('main.Actions')}}</th>
                                         @endrole

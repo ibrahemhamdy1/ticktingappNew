@@ -103,6 +103,7 @@ return [
     'info'=>'General Information About tour',
 
 
+    'phone'=>'Phone',
 
 
 
