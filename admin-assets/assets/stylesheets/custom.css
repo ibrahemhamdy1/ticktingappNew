@@ -1,0 +1,38 @@
+.panel{
+	margin-top: 40px;
+}
+
+.add-userform{
+	margin: 30px;
+}
+
+.submitCreatUser{
+	margin: 30px;
+}
+
+.header{
+	border-top: 0;
+}
+
+
+/*dashboard*/
+.summary{
+	padding: 20px;
+}
+
+.boxNumbers{
+	margin-bottom: 50px;
+}
+
+.greenBox{
+	background-color: #2ECC71 !important ;
+}
+.orangBox{
+	background-color: #F89406 !important;
+}
+
+
+/**/
+.editclientMargin{
+	margin: 5px;
+}

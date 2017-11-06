@@ -1,0 +1,466 @@
+
+
+
+
+
+
+
+
+
+@extends('admin.main')
+@section('content')
+
+@section('header')
+    <link type="text/css" rel="stylesheet" 
+{{--         href="{{ asset('admin-assets/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css')}}"/>
+ --}}
+{{--     <link type="text/css" rel="stylesheet" 
+        href="{{ asset('admin-assets/assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css')}}"/>
+ --}}        <link type="text/css" rel="stylesheet" 
+        href="{{ asset('admin-assets/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css')}}"/>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>
+@endsection
+
+
+    @inject('role','App\Role')
+
+    <?php
+    $roles = $role->all();
+    
+    ?>
+<div class="panel-body">
+                 <section class="panel">
+
+
+                            <div class="row">
+                                <div class="col-md-4">
+
+                                    <section class="panel panel-featured panel-featured-primary  text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                                                
+                                            </div>
+
+                                            <h2 class="panel-title ">client ID </h2>
+ 
+                                        </header>
+                                        <div class="panel-body">
+
+                                            {!!  $m->client->id!!}
+                                                
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <section class="panel panel-featured panel-featured-primary text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                                                
+                                            </div>
+: 
+                                            <h2 class="panel-title">client Name</h2>
+
+                                        </header>
+                                        <div class="panel-body">
+                                            
+                                           {!!  $m->client->name !!}
+
+
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <section class="panel panel-featured panel-featured-primary text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                                                
+                                            </div>
+
+                                            <h2 class="panel-title">client Email</h2>
+                                        </header>
+                                        <div class="panel-body">
+                                            {!!  $m->client->email !!}
+                                            
+                                        </div>
+                                    </section>
+                                </div>
+
+
+                            </div>
+                        </section>
+                        <section class="panel">
+                            <div class="row">
+                                <div class="col-md-4">
+
+                                    <section class="panel panel-featured panel-featured-primary text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                                                
+                                            </div>
+ 
+                                            <h2 class="panel-title">UCID</h2>
+
+                                        </header>
+                                        <div class="panel-body">
+                                            {!!  $m->client->account !!}
+
+
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-4">
+  
+                                    <section class="panel panel-featured panel-featured-primary text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                                                
+                                            </div>
+
+                                            <h2 class="panel-title">client phone</h2>
+
+                                        </header>
+                                        <div class="panel-body">
+                                            {!!  $m->client->phone !!}
+
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-4">
+                                    <section class="panel panel-featured panel-featured-primary text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                                                
+                                            </div>
+
+                                            <h2 class="panel-title">client mobile</h2>
+
+                                        </header>
+                                        <div class="panel-body">
+                                            {!!  $m->client->mobile!!}
+
+                                        </div>
+                                    </section>
+                                </div>
+
+
+                            </div>
+                        </section>
+                        <section class="panel">
+                            <div class="row">
+                                <div class="col-md-4">
+
+                                    <section class="panel panel-featured panel-featured-primary text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                                                
+                                            </div>
+ 
+                                            <h2 class="panel-title">client Address</h2>
+
+                                        </header>
+                                        <div class="panel-body">
+                                            {!!  $m->client->address !!}
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <section class="panel panel-featured panel-featured-primary text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                                                
+                            :                  </div>
+
+                                            <h2 class="panel-title">client packet</h2>
+
+                                        </header>
+                                        <div class="panel-body">
+                                            {!!  $m->client->packet->name !!}
+
+                                            
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <section class="panel panel-featured panel-featured-primary text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                     :                             
+                                            </div>
+
+                                            <h2 class="panel-title">client ISP</h2>
+
+                                        </header>
+                                        <div class="panel-body">
+
+                                            {!!  $m->client->network->name !!}
+                                        </div>
+                                    </section>
+                                </div>
+
+
+                            </div>
+                        </section>
+                        <section class="panel">
+                            <div class="row">
+                                <div class="col-md-6 text-center">
+
+                                    <section class="panel panel-featured panel-featured-primary text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                                                
+                                            </div>
+
+                                            <h2 class="panel-title">client sales Date</h2>
+
+                                        </header>
+                                        <div class="panel-body">
+
+                                             {!!  $m->client->start_date !!}
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-6 text-center">
+
+                                    <section class="panel panel-featured panel-featured-primary text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                                                
+                                            </div>
+
+                                            <h2 class="panel-title">client sales Date</h2>
+
+                                        </header>
+                                        <div class="panel-body">
+                                             {!!  $m->client->start_date !!}
+                                        </div>
+                                    </section>
+                                </div>
+
+                                
+
+
+                            </div>
+                        </section>
+</div>
+{{-- Tickit --}}
+<hr>
+<div class="panel-body">
+
+             <section class="panel">
+                            <div class="text-center"> <h1 class="text-info">Tickit</h1></div>
+                            <div class="row">
+                                <div class="col-md-6 text-center">
+
+                                    <section class="panel panel-featured panel-featured-primary text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                                                
+                                            </div>
+
+                                            <h2 class="panel-title">Ticket Id</h2>
+
+                                        </header>
+                                        <div class="panel-body">
+
+                                             {!!  $m->id !!}
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-6 text-center">
+
+                                    <section class="panel panel-featured panel-featured-primary text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                                                
+                                            </div>
+                                            <h2 class="panel-title">title</h2>
+
+                                        </header>
+                                        <div class="panel-body">
+                                             {!!  $m->title !!}
+
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-12 text-center">
+
+                                    <section class="panel panel-featured panel-featured-primary text-center">
+                                        <header class="panel-heading">
+                                            <div class="panel-actions">
+                                                
+                                            </div>
+
+                                            <h2 class="panel-title">subject</h2>
+
+                                        </header>
+                                        <div class="panel-body">
+                                             {!!  $m->body !!}
+                                        </div>
+                                    </section>
+                                </div>
+                                
+                                
+
+
+                            </div>
+                        </section>
+</div>
+   
+                            @if($m->employee)
+                            <span><p style="color:#0a91ff; ">Employee :</p> <p>{!!  $m->employee->name !!}</p></span>
+                             @endif
+
+                        @if($m->openemployee)
+                            <span><p style="color:#0a91ff; ">Open Employee :</p> <p>{!!  $m->openemployee->name !!}</p></span>
+                        @endif
+                        @if(!is_null($m->open_date))
+                            <span><p style="color:#0a91ff; ">Open Date
+                                    :</p><p>{{date("F jS",strtotime($m->open_date))}}</p></span>
+                        @endif
+
+                        @if($m->closeemployee)
+                            <span><p style="color:#0a91ff; ">Close Employee :</p> <p>{!!  $m->closeemployee->name !!}</p></span>
+                        @endif
+
+                        @if(!is_null($m->closed_date))
+                            <span><p style="color:#0a91ff; ">close Date
+                                    :</p><p>{{date("F jS",strtotime($m->closed_date))}}</p></span>
+                        @endif
+
+                        {{--====================== Comment========================--}}
+            <div class="text-center">
+                            <div class="divider mailbox-divider"></div>
+                            <h4 class="text-info">Comments</h4>
+                            <div class="divider mailbox-divider"></div>
+                            <div class="mailbox-text">
+
+                        <div class="col-xs-12 col-sm-12">
+                            {{--<form class="col s12">--}}
+
+
+                            @foreach($m->comments as $item)
+
+                                <div class="panel-body">
+                                    <span>@if($item->user){{$item->user->name}} ({{$item->user->roles()->first()->display_name}}) 
+                                        @else unknown
+                                        @endif:
+                                    </span> 
+                                    {{$item->comment}}   
+                                
+                                    <span><i class="fa fa-clock-o"></i>{{$item->created_at}}</span>
+                                    <div class="divider mailbox-divider"></div>
+                                </div>
+                                <hr>
+                            @endforeach
+
+
+
+
+
+
+                            {!! Form::open(array(
+                                'url'=>'controll/save-ticket',
+                                'role'=>'form',
+                                'method'=>'POST',
+                                'class'=>"col s12",
+                                'files'=>true
+                                ))!!}
+
+
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea name="comment"  placeholder="Placeholder" id="comment" type="text" class="validate form-control"> </textarea>
+                                    </div>
+
+                                </div>
+
+                            <input type="hidden" name="ticket_id" value="{{$m->id}}">
+                            
+
+
+                            <button class="btn btn-success" type="submit" name="action">comment
+                                <i class="material-icons right">send</i>
+                            </button>
+                            {{--</form>--}}
+
+                            {!! Form::close()!!}
+
+                            <br>
+                            <br>
+                            @if($m->status ==2  )
+                                {!!Form::open(array('method'=>'post','url'=>'controll/change-status'))!!}
+                                <input name="status" value="3" type="hidden">
+                                <input name="ticket_id" value="{{$m->id}}" type="hidden">
+                                {!!Form::submit(('close ticket'),array('class'=>'btn waves-effect waves-light'))!!}
+                                {!!Form::close()!!}
+
+                            @endif
+
+
+                        </div>
+
+
+                        {{--========================--}}
+
+
+            </div>
+
+ 
+@endsection
+@section('script')
+
+
+
+<script src="{{ asset('admin-assets/assets/vendor/select2/js/select2.js')}}"></script>
+
+ <script src="{{ asset('admin-assets/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js')}}"></script>
+    
+<script src="{{ asset('admin-assets/assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js')}}
+"></script>
+        
+                <script src="{{ asset('admin-assets/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js')}}
+"></script>
+
+
+
+
+<script src="{{ asset('admin-assets/assets/javascripts/tables/examples.datatables.default.js')}}"></script>
+
+<script src="{{asset('admin-assets/assets/javascripts/tables/examples.datatables.row.with.details.js')}}"></script>
+<script src="{{ asset('admin-assets/assets/javascripts/tables/examples.datatables.tabletools.js')}}"></script>
+
+
+{{-- NEW  SCRIPT --}}
+<script src="{{asset('admin-assets/assets/vendor/jqueryui-touch-punch/jqueryui-touch-punch.js')}}"></script>
+<script src="{{asset('admin-assets/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js')}}"></script>
+
+
+<script src="{{asset('admin-assets/assets/vendor/jquery-maskedinput/jquery.maskedinput.js')}}"></script>
+<script src="{{asset('admin-assets/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
+
+<script src="{{asset('admin-assets/assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js')}}"></script>
+<script src="{{asset('admin-assets/assets/javascripts/forms/examples.advanced.form.js')}}"></script>
+
+
+{{-- done  SCRIPT --}}
+
+<script> 
+$('.selectpicker').selectpicker({
+  style: 'btn-info',
+  size: 4
+});
+ </script>
+@endsection
