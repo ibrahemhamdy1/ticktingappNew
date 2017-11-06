@@ -60,7 +60,7 @@
                                         
                                         </tbody>
                                 </table>
-                                   {!! $rows->render() !!}
+                                  {{--  {!! $rows->render() !!} --}}
 
                             </div>
                         </section>

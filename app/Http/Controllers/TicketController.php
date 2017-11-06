@@ -99,13 +99,14 @@ class TicketController extends Controller
         $this->request->merge(['status' => 0]);
         $this->request->merge(['periority' => 0]);
         $this->request->merge(['seen' => 0]);
-        $Clients =  Client::where('name',$this->request['search_text'])->get();
-          // dd($this->request);
-        foreach ($Clients as $client_id ) {
-         
-                    $this->request->merge(['client_id' => $client_id['id']]);
 
-        }
+        $Clients =  Client::where('id',$this->request['client_id'])->get();
+        //   dd($Clients);
+        // foreach ($Clients as $client_id ) {
+         
+        //             $this->request->merge(['client_id' => $client_id['id']]);
+
+        // }
         //dd($this->request['client_id']);
       
         $insert = $this->model->create($this->request->all());
@@ -114,12 +115,12 @@ class TicketController extends Controller
 
             if ($this->request->ajax())
                 return response()->json(array('status' => 'true', 'message' => "Add ticket Done Sucessfully"));
-            return redirect()->back()->with('success', "Add category Done Sucessfully");
+            return redirect()->back()->withFlashMessage("Add category Done Sucessfully");
 
         } else {
             if ($this->request->ajax())
                 return response()->json(array('status' => 'false', 'message' => trans('Error')));
-            return redirect()->back()->with('failed', trans('lang.Error'));
+            return redirect()->back()->withFlashMessage('failed', trans('lang.Error'));
         }
     }
 

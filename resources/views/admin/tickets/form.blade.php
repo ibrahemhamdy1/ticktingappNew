@@ -11,7 +11,11 @@ $clientsss = $client->get();
      $clients[$client->id]=$client->phone .'  |  '. $client->name;
 //     $clients[$client->id]=$client->name .'|'. $client->name;
  }
-//print_r($clients);die();
+ if (isset($validator)){
+    $errors = $validator->errors();
+ 
+}
+
 ?>
 <div class="panel-body">  
 
