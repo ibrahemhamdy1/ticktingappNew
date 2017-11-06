@@ -100,13 +100,13 @@ class TicketController extends Controller
         $this->request->merge(['periority' => 0]);
         $this->request->merge(['seen' => 0]);
 
-        $Clients =  Client::where('id',$this->request['client_id'])->get();
-        //   dd($Clients);
-        // foreach ($Clients as $client_id ) {
+        $Clients =  Client::where('name',$this->request['search_text'])->get();
+          // dd($this->request);
+        foreach ($Clients as $client_id ) {
          
-        //             $this->request->merge(['client_id' => $client_id['id']]);
+                    $this->request->merge(['client_id' => $client_id['id']]);
 
-        // }
+        }
         //dd($this->request['client_id']);
       
         $insert = $this->model->create($this->request->all());

@@ -35,6 +35,7 @@
 <link href="https://rawgit.com/select2/select2/master/dist/css/select2.min.css" rel="stylesheet"/>
 <script src="https://rawgit.com/select2/select2/master/dist/js/select2.js"></script>
 
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
 
 <script src="{{ asset('admin-assets/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js')}}"></script>
 <script src="{{ asset('admin-assets/assets/vendor/magnific-popup/jquery.magnific-popup.js')}}"></script>
