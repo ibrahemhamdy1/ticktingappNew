@@ -70,20 +70,18 @@ class PacketController extends Controller
      */
     public function store()
     {
-//        $this->request->merge(['slug' => $this->request->name_en]);
+            //        $this->request->merge(['slug' => $this->request->name_en]);
 
             $insert = $this->model->create($this->request->all());
             if ($insert) {
-//Insert Blog Gallary
-
-                if ($this->request->ajax())
-                    return response()->json(array('status' => 'true', 'message' => "Add category Done Sucessfully"));
-                return redirect()->back()->with('success', "Add category Done Sucessfully");
+                //Insert Blog Gallary
+                \Session::flash('flash_message','Pacet add successfully added.'); //<--FLASH MESSAGE
+                
+                return redirect('controll/packets');
 
         } else {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'false', 'message' => trans('Error')));
-            return redirect()->back()->with('failed', trans('lang.Error'));
+            \Session::flash('flash_message','Pacet was not added successfully added.'); //<--FLASH MESSAGE
+            return redirect()->back();
         }
     }
 

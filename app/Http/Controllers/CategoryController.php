@@ -144,14 +144,13 @@ class CategoryController extends Controller
     {
         $delete = $this->model->destroy($id);
         if ($delete) {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'true', 'message' => trans('lang.deletedsuccessfully')));
-
-            return redirect()->back()->with('failed', trans('lang.deletedsuccessfully'));
+             \Session::flash('flash_message','categorie destroyed successfully'); //<--FLASH MESSAGE
+                
+                
+            return redirect()->back();
         } else {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'false', trans('lang.deletedfailed')));
-            return redirect()->back()->with('failed', trans('lang.deletedfailed'));
+            \Session::flash('flash_message','categorie Not destroyed successfully'); //<--FLASH MESSAGE
+            return redirect()->back();
         }
     }
 }
