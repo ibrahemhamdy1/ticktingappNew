@@ -20,23 +20,6 @@ use App;
 class ClientController extends Controller {
 
 
- // public function autoComplete(Request $request) {
- // +        $query = $request->get('term','');
- // +        
- // +        $products=Client::where('name','LIKE','%'.$query.'%')->get();
- // +        $data=array();
- // +        foreach ($products as $product) {
- // +                $data[]=array('value'=>$product->name,'id'=>$product->id);
- // +        }
- // +        if(count($data))
- // +             return $data;
- // +        else
- // +            return ['value'=>'No Result Found','id'=>''];
- // +    }
-     
-
-
- 
 
     //=======  request and model and view file =============//
     public function __construct(ClientRequest $request, Client $model)
@@ -155,14 +138,12 @@ class ClientController extends Controller {
     {
         $update = $this->model->find($id)->update($this->request->all());
         if ($update) {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'true', 'message' => 'Update Section Done'));
-            return redirect()->back()->with('success', 'Update Section Done');
-        } else {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'false', 'message' => 'Update Faild'));
+                    \Session::flash('flash_message','clients Updated successfully '); //<--FLASH MESSAGE
 
-            return redirect()->back()->with('failed', 'Update Faild');
+            return redirect('/controll/clients');
+        } else {
+            \Session::flash('flash_message','clients was not Updated successfully '); //<--FLASH MESSAGE
+            return redirect()->back();
         }
     }
 
@@ -176,13 +157,12 @@ class ClientController extends Controller {
     {
         $delete = $this->model->destroy($id);
         if ($delete) {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'true', 'message' => trans('lang.deletedsuccessfully')));
+            
+                    \Session::flash('flash_message','clients destroyed successfully .'); //<--FLASH MESSAGE
 
-            return redirect()->back()->with('failed', trans('lang.deletedsuccessfully'));
+            return redirect()->back();
         } else {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'false', trans('lang.deletedfailed')));
+            \Session::flash('flash_message','clients was not destroyed successfully.'); //<--FLASH MESSAGE
             return redirect()->back()->with('failed', trans('lang.deletedfailed'));
         }
     }

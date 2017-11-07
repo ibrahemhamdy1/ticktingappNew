@@ -71,15 +71,14 @@ class CategoryController extends Controller
             $insert = $this->model->create($this->request->all());
             if ($insert) {
 //Insert Blog Gallary
-
-                if ($this->request->ajax())
-                    return response()->json(array('status' => 'true', 'message' => "Add category Done Sucessfully"));
-                return redirect()->back()->with('success', "Add category Done Sucessfully");
+            \Session::flash('flash_message','categorie add successfully added.'); //<--FLASH MESSAGE
+                
+                return redirect('/controll/categories');
 
         } else {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'false', 'message' => trans('Error')));
-            return redirect()->back()->with('failed', trans('lang.Error'));
+             \Session::flash('flash_message','clients Not  add successfully added.'); //<--FLASH MESSAGE
+                
+            return redirect()->back();
         }
     }
 
@@ -126,14 +125,12 @@ class CategoryController extends Controller
     {
         $update = $this->model->find($id)->update($this->request->all());
         if ($update) {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'true', 'message' => 'Update Section Done'));
-            return redirect()->back()->with('success', 'Update Section Done');
+            \Session::flash('flash_message','categories update successfully added.'); //<--FLASH MESSAGE
+            return redirect('/controll/categories');
         } else {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'false', 'message' => 'Update Faild'));
-
-            return redirect()->back()->with('failed', 'Update Faild');
+            
+                \Session::flash('flash_message','clients Faild update successfully added.'); //<--FLASH MESSAGE
+            return redirect()->back();
         }
     }
 

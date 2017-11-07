@@ -1,5 +1,7 @@
 <div class="panel-body">  
-
+@if(Session::has('flash_message'))
+    <div class="alert alert-denger"><em> {!! session('flash_message') !!}</em></div>
+@endif
 
             <div class="form-group">
                         <label class="control-label col-md-3">Name</label>
