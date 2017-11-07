@@ -9,6 +9,9 @@
     <?php
     $users = $role->findOrFail(2)->users()->pluck('name','id');
     ?>
+    @if(Session::has('flash_message'))
+        <div class="alert alert-success text-center"><em> {!! session('flash_message') !!}</em></div>
+    @endif
     <div class="card invoices-card">
 
         <div class="card-content">

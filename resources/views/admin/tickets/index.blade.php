@@ -24,7 +24,9 @@
 @endsection
 <!-- start: page -->
  
-
+@if(Session::has('flash_message'))
+        <div class="alert alert-success text-center"><em> {!! session('flash_message') !!}</em></div>
+    @endif
 
                         <section class="panel">
                             <header class="panel-heading">
@@ -45,7 +47,7 @@
                                             <tr>
                                                 <th data-field="id">ID</th>
 
-                                                <th data-field="company">title</th>
+                                                <th data-field="company">Phone</th>
                                                 <th data-field="company">status</th>
                                                 <th data-field="company">Department</th>
 

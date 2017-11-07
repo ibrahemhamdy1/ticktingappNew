@@ -9,6 +9,9 @@
     <?php
     $roles = $role->all();
     ?>
+    @if(Session::has('flash_message'))
+        <div class="alert alert-success text-center"><em> {!! session('flash_message') !!}</em></div>
+    @endif
     <div class="card invoices-card">
         <div class="card-content">
 

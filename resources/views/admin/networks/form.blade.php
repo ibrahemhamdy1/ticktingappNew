@@ -3,7 +3,9 @@
 
                 {{--======================name===================--}}
                 
-
+@if(Session::has('flash_message'))
+        <div class="alert alert-danger text-center"><em> {!! session('flash_message') !!}</em></div>
+    @endif
 
            <div class="form-group">
                         <label class="control-label col-md-3">NetWork Name</label>

@@ -30,10 +30,7 @@ class TicketController extends Controller
         $this->middleware('role:admin|salesManager', ['only' => ['edit', 'update']]);
         $this->middleware('role:sales|salesManager|supportManager', ['only' => ['myTicket']]);
         $this->middleware('role:admin|salesManager|supportManager|sales|supports', ['only' => ['index']]);
-//        $this->middleware('role:supportManager',['only' => ['index','edit','update','show']]);
-//        $this->middleware('role:sales',['only' => ['index','create','store','edit','update','show']]);
-//        $this->middleware('role:supports',['only' => ['index','show']]);
-//
+
 
 
         $this->request = $request;
@@ -113,14 +110,12 @@ class TicketController extends Controller
         if ($insert) {
 //Insert Blog Gallary
 
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'true', 'message' => "Add ticket Done Sucessfully"));
-            return redirect()->back()->withFlashMessage("Add category Done Sucessfully");
+            \Session::flash('flash_message','Ticket added successfully '); //<--FLASH MESSAGE
+            return redirect('controll/tickets');
 
         } else {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'false', 'message' => trans('Error')));
-            return redirect()->back()->withFlashMessage('failed', trans('lang.Error'));
+            \Session::flash('flash_message','Ticket Not added successfully '); //<--FLASH MESSAGE
+            return redirect()->back();
         }
     }
 
@@ -202,14 +197,13 @@ class TicketController extends Controller
     {
         $update = $this->model->find($id)->update($this->request->all());
         if ($update) {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'true', 'message' => 'Update Section Done'));
-            return redirect()->back()->with('success', 'Update Section Done');
-        } else {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'false', 'message' => 'Update Faild'));
+            \Session::flash('flash_message','Ticket updated successfully '); //<--FLASH MESSAGE
 
-            return redirect()->back()->with('failed', 'Update Faild');
+            return redirect('controll/tickets');
+        } else {
+            \Session::flash('flash_message','Ticket Not updated successfully '); //<--FLASH MESSAGE
+
+            return redirect()->back();
         }
     }
 
@@ -223,14 +217,12 @@ class TicketController extends Controller
     {
         $delete = $this->model->destroy($id);
         if ($delete) {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'true', 'message' => trans('lang.deletedsuccessfully')));
+            \Session::flash('flash_message','Ticket destroyed successfully '); //<--FLASH MESSAGE
 
-            return redirect()->back()->with('failed', trans('lang.deletedsuccessfully'));
+             return redirect('controll/tickets');
         } else {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'false', trans('lang.deletedfailed')));
-            return redirect()->back()->with('failed', trans('lang.deletedfailed'));
+            \Session::flash('flash_message','Ticket not destroyed successfully '); //<--FLASH MESSAGE
+            return redirect()->back();
         }
     }
 

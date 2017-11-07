@@ -128,14 +128,13 @@ class PacketController extends Controller
     {
         $update = $this->model->find($id)->update($this->request->all());
         if ($update) {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'true', 'message' => 'Update Section Done'));
-            return redirect()->back()->with('success', 'Update Section Done');
-        } else {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'false', 'message' => 'Update Faild'));
+            \Session::flash('flash_message','Pacet updated successfully '); //<--FLASH MESSAGE
+                
+                return redirect('controll/packets');
 
-            return redirect()->back()->with('failed', 'Update Faild');
+        } else {
+            \Session::flash('flash_message','Pacet Not updated successfully '); //<--FLASH MESSAGE
+            return redirect()->back();
         }
     }
 
@@ -149,14 +148,12 @@ class PacketController extends Controller
     {
         $delete = $this->model->destroy($id);
         if ($delete) {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'true', 'message' => trans('lang.deletedsuccessfully')));
-
-            return redirect()->back()->with('failed', trans('lang.deletedsuccessfully'));
+            
+            \Session::flash('flash_message','Pacet destroy successfully '); //<--FLASH MESSAGE
+            return redirect()->back();
         } else {
-            if ($this->request->ajax())
-                return response()->json(array('status' => 'false', trans('lang.deletedfailed')));
-            return redirect()->back()->with('failed', trans('lang.deletedfailed'));
+            \Session::flash('flash_message','Pacet Not destroy successfully '); //<--FLASH MESSAGE
+            return redirect()->back();
         }
     }
 }

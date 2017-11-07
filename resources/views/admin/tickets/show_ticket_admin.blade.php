@@ -39,7 +39,9 @@
 <div class="panel-body">
                  <section class="panel">
 
-
+@if(Session::has('flash_message'))
+        <div class="alert alert-success text-center"><em> {!! session('flash_message') !!}</em></div>
+    @endif
                             <div class="row">
                                 <div class="col-md-4">
 
@@ -54,7 +56,10 @@
                                         </header>
                                         <div class="panel-body">
 
-                                            {!!  $m->client->id!!}
+                                            
+                                            @if(isset($m->client->id))
+                                               {!!  $m->client->id!!}
+                                            @endif
                                                 
                                         </div>
                                     </section>
@@ -72,7 +77,10 @@
                                         </header>
                                         <div class="panel-body">
                                             
-                                           {!!  $m->client->name !!}
+                                           
+                                            @if(isset($m->client->name))
+                                               {!!  $m->client->name !!}
+                                            @endif
 
 
                                         </div>
@@ -89,7 +97,10 @@
                                             <h2 class="panel-title">client Email</h2>
                                         </header>
                                         <div class="panel-body">
-                                            {!!  $m->client->email !!}
+                                            
+                                            @if(isset($m->client->email))
+                                               {!!  $m->client->email !!}
+                                            @endif
                                             
                                         </div>
                                     </section>
@@ -112,9 +123,11 @@
 
                                         </header>
                                         <div class="panel-body">
-                                            {!!  $m->client->account !!}
+                                            
 
-
+                                            @if(isset($m->client->account))
+                                               {!!  $m->client->account !!}
+                                            @endif
                                         </div>
                                     </section>
                                 </div>
@@ -130,7 +143,10 @@
 
                                         </header>
                                         <div class="panel-body">
-                                            {!!  $m->client->phone !!}
+                                            
+                                            @if(isset($m->client->phone))
+                                                {!!  $m->client->phone !!}
+                                            @endif
 
                                         </div>
                                     </section>
@@ -146,7 +162,10 @@
 
                                         </header>
                                         <div class="panel-body">
-                                            {!!  $m->client->mobile!!}
+                                            
+                                            @if(isset($m->client->mobile))
+                                                {!!  $m->client->mobile!!}
+                                            @endif
 
                                         </div>
                                     </section>
@@ -169,7 +188,10 @@
 
                                         </header>
                                         <div class="panel-body">
-                                            {!!  $m->client->address !!}
+                                            
+                                            @if(isset($m->client->address))
+                                                {!! $m->client->address !!}
+                                            @endif
                                         </div>
                                     </section>
                                 </div>
@@ -185,8 +207,10 @@
 
                                         </header>
                                         <div class="panel-body">
+                                           
+                                           @if(isset($m->client->packet->name))
                                             {!!  $m->client->packet->name !!}
-
+                                            @endif
                                             
                                         </div>
                                     </section>
@@ -203,8 +227,9 @@
 
                                         </header>
                                         <div class="panel-body">
-
+                                            @if(isset($m->client->network->name))
                                             {!!  $m->client->network->name !!}
+                                            @endif
                                         </div>
                                     </section>
                                 </div>
@@ -227,7 +252,11 @@
                                         </header>
                                         <div class="panel-body">
 
-                                             {!!  $m->client->start_date !!}
+                                           
+                                            @if(isset($m->client->start_date))
+                                              {!!  $m->client->start_date !!}
+                                            @endif
+
                                         </div>
                                     </section>
                                 </div>
@@ -243,7 +272,11 @@
 
                                         </header>
                                         <div class="panel-body">
-                                             {!!  $m->client->start_date !!}
+                                             
+                                            @if(isset($m->client->start_date))
+                                              {!!  $m->client->start_date !!}
+                                            @endif
+
                                         </div>
                                     </section>
                                 </div>
@@ -274,7 +307,10 @@
                                         </header>
                                         <div class="panel-body">
 
-                                             {!!  $m->id !!}
+                                             
+                                            @if(isset($m->id))
+                                              {!!  $m->id !!}
+                                            @endif                                             
                                         </div>
                                     </section>
                                 </div>
@@ -289,7 +325,10 @@
 
                                         </header>
                                         <div class="panel-body">
-                                             {!!  $m->title !!}
+                                             
+                                            @if(isset($m->title))
+                                              {!!  $m->title !!}
+                                            @endif                                             
 
                                         </div>
                                     </section>
@@ -306,7 +345,11 @@
 
                                         </header>
                                         <div class="panel-body">
-                                             {!!  $m->body !!}
+                                            
+                                             @if(isset($m->body))
+                                               {!!  $m->body !!}
+                                            @endif                                             
+
                                         </div>
                                     </section>
                                 </div>
