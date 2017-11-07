@@ -6,39 +6,6 @@ use App\Category;
 use App\Packet;
 use App\Ticket;
 
-//use Auth;
-
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-//Route::get('/', function () {
-//    return view('front.main');
-//});
-
-
-
-// front
-
-
-
-
-
-
-
-
 
 Route::get('searchajax',array('as'=>'searchajax','uses'=>'ClientController@autoComplete'));
 
@@ -52,15 +19,8 @@ Route::get('searchajax',array('as'=>'searchajax','uses'=>'ClientController@autoC
 
 
 
-//Route::auth();
-
-//Route::get('/home', 'HomeController@index');
-
-
-
-
  //auth
-Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
+Route::get('/', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
 Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@login']);
 Route::get('logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
 
@@ -75,13 +35,10 @@ Route::group(array('middleware' => array('auth'), 'prefix' => 'controll'), funct
       $categorys =Category::count();
       $packages   =Packet::count();
       $ticket   =Ticket::count();
-
       
       //dd($clients);
         return view('dashboard',compact('users','clients','networks','categorys','packages','ticket'));
     });
-
-
 
     //dashboard
     Route::resource('users', 'UserController');
@@ -98,21 +55,10 @@ Route::group(array('middleware' => array('auth'), 'prefix' => 'controll'), funct
     Route::post('change-status', 'TicketController@changeStatus');
 //  Route::post('change-status-supports', 'TicketController@changeStatusSupports');
 
-
-
 //export excel sheet
 
     Route::get('importExport', 'MaatwebsiteDemoController@importExport');
     Route::get('downloadExcel/{type}', 'MaatwebsiteDemoController@downloadExcel');
     Route::post('importExcel', 'MaatwebsiteDemoController@importExcel');
-
-
-
-
-
-
-
-
-
 
 });

@@ -36,3 +36,13 @@
 .editclientMargin{
 	margin: 5px;
 }
+
+.box{
+	margin-bottom: 20px;
+}
+
+
+.nopaddinng{
+	padding: 5px; 
+	margin-left: 5px;
+}

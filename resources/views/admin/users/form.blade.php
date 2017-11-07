@@ -17,7 +17,9 @@ $role2 = auth()->user()->roles()->first()->name;
                                 <span class="icon"><i class="fa fa-envelope"></i></span>
                             </span>
                                 {!!Form::email('email', null,array('class'=>'validate form-control','id'=>'email'))!!}
-                                 <label class="error">{{ $errors->first('email') }}</label>
+                                @if(!empty($errors->first('email')))
+                                 <label class="alert alert-danger nopaddinng">{{ $errors->first('email') }}</label>
+                                @endif
 
                         </div>
                     </section>
@@ -71,8 +73,9 @@ $role2 = auth()->user()->roles()->first()->name;
                                 <span class="icon"><i class="fa fa-key"></i></span>
                             </span>
                             <input class="validate form-control" type="password" placeholder="Password" name="password" id="password">
-                            <label class="error">{{ $errors->first('password') }}</label>
-
+                            @if(!empty($errors->first('password')))
+                                <label class="alert alert-danger nopaddinng">{{ $errors->first('password') }}</label>
+                            @endif
 
                         </div>
                     </section>
@@ -87,8 +90,9 @@ $role2 = auth()->user()->roles()->first()->name;
                                 <span class="icon"><i class="fa fa-key"></i></span>
                             </span>
                             <input class="validate form-control" type="password" placeholder="Password Confirmation" id="password_confirmation" name="password_confirmation">
-                            <label class="error">{{ $errors->first('password_confirmation') }}</label>
-
+                            @if(!empty($errors->first('password_confirmation')))
+                                <label class="alert alert-danger nopaddinng">{{ $errors->first('password_confirmation') }}</label>
+                            @endif
                         </div>
                     </section>
                 </div>
